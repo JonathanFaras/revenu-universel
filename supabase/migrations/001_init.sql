@@ -77,18 +77,23 @@ alter table public.votes enable row level security;
 -- Lecture : toute personne connaissant le code peut observer la salle.
 -- Les mutations financières et d'état passent par les routes API (service role).
 
+drop policy if exists "rooms_select" on public.rooms;
 create policy "rooms_select" on public.rooms
   for select using (true);
 
+drop policy if exists "participants_select" on public.participants;
 create policy "participants_select" on public.participants
   for select using (true);
 
+drop policy if exists "decisions_select" on public.decisions;
 create policy "decisions_select" on public.decisions
   for select using (true);
 
+drop policy if exists "transactions_select" on public.transactions;
 create policy "transactions_select" on public.transactions
   for select using (true);
 
+drop policy if exists "votes_select_hidden" on public.votes;
 create policy "votes_select_hidden" on public.votes
   for select using (
     exists (
