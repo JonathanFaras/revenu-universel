@@ -86,10 +86,18 @@ export function ScreenView({ state, demo }: { state: GameState; demo: boolean })
       ) : null}
 
       {state.room.currentRound >= 2 ? (
-        <section className="grid gap-4 md:grid-cols-3">
-          <BigStat value={meals.ate} label="Ont pu payer le repas" />
-          <BigStat value={meals.starved} label="N'ont pas pu manger" />
-          <BigStat value={meals.average} label="Solde moyen" />
+        <section className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-3">
+            <BigStat value={meals.ate} label="Ont pu payer le repas" />
+            <BigStat value={meals.starved} label="N'ont pas pu manger" />
+            <BigStat value={meals.average} label="Solde moyen" />
+          </div>
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 text-slate-300">
+            <p className="text-xl font-semibold text-white mb-2">Bilan de la manche 2 (Repas à 6 jetons) :</p>
+            <p className="text-base text-slate-300">• <strong className="text-cyan-300">Travail :</strong> 8 − 6 = 2 jetons restants (a pu manger)</p>
+            <p className="text-base text-slate-300">• <strong className="text-emerald-300">Temps libre :</strong> 5 &lt; 6 = repas impossible (5 jetons restants, n&apos;a pas pu manger)</p>
+            <p className="text-base text-slate-300">• <strong className="text-orange-300">Formation :</strong> 3 + bonus 6 = 9 − 6 = 3 jetons restants (a pu manger et a gagné 3 jetons)</p>
+          </div>
         </section>
       ) : null}
 

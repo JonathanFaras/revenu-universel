@@ -14,10 +14,12 @@ import {
 import {
   INITIAL_BALANCE,
   MEAL_COST,
+  ROUND_1_DURATION_MS,
   TRAINING_BONUS,
   TRAINING_COST,
   WORK_GAIN,
 } from "./types";
+import { mealMessage, ROUND1_OPTIONS } from "./copy";
 
 const HOST = "host-token-test-secret";
 const NOW = 1_700_000_000_000;
@@ -240,5 +242,37 @@ describe("réinitialisation", () => {
     expect(reset.state.participants[0].currentBalance).toBe(5);
     expect(reset.state.decisions).toHaveLength(0);
     expect(reset.state.votes).toHaveLength(0);
+  });
+});
+
+describe("durée et textes des choix (ajustements)", () => {
+  it("définit un temps de 2 minutes pour la manche 1", () => {
+    expect(ROUND_1_DURATION_MS).toBe(120_000);
+    const room = createRoom(NOW, HOST);
+    const started = startRound1(room, HOST, NOW);
+    expect(started.ok).toBe(true);
+    if (!started.ok) return;
+    expect(started.state.room.roundEndsAt).toBe(NOW + 120_000);
+  });
+
+  it("présente les choix de la manche 1 sans spoiler", () => {
+    const work = ROUND1_OPTIONS.find((o) => o.id === "work")!;
+    expect(work.description).not.toContain("tout de suite");
+    expect(work.description).toBe("Ton solde passe de 5 à 8.");
+
+    const leisure = ROUND1_OPTIONS.find((o) => o.id === "leisure")!;
+    expect(leisure.description).not.toContain("Tu conserves tes 5 jetons");
+    expect(leisure.description).toBe("Tu disposes de ton temps.");
+
+    const training = ROUND1_OPTIONS.find((o) => o.id === "training")!;
+    expect(training.description).not.toContain("investis");
+    expect(training.description).not.toContain("bonus");
+    expect(training.subtitle).toBe("−2 jetons");
+    expect(training.description).toBe("Ton solde passe de 5 à 3.");
+  });
+
+  it("annonce en manche 2 le gain des participants formés", () => {
+    const msg = mealMessage(3, true, "training");
+    expect(msg).toContain("gagné 3 jetons");
   });
 });

@@ -151,7 +151,7 @@ export function PlayerView({
         <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
           <h2 className="text-xl font-semibold text-white">Les prix montent</h2>
           <p className="mt-3 text-base leading-7 text-slate-200">
-            {mealMessage(player.currentBalance, player.ateMeal)}
+            {mealMessage(player.currentBalance, player.ateMeal, decision?.choice)}
           </p>
           <p className="mt-4 text-sm text-slate-400">
             Le repas coûte 6 jetons. Un solde insuffisant empêche de payer, sans

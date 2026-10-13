@@ -3,7 +3,7 @@ export const MEAL_COST = 6;
 export const WORK_GAIN = 3;
 export const TRAINING_COST = 2;
 export const TRAINING_BONUS = 6;
-export const ROUND_1_DURATION_MS = 30_000;
+export const ROUND_1_DURATION_MS = 120_000;
 
 export type RoomStatus = "lobby" | "in_progress" | "finished";
 export type RoundNumber = 0 | 1 | 2 | 3;

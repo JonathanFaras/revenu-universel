@@ -32,7 +32,7 @@ Depuis l'espace animateur, vous pouvez ajouter des participants fictifs, simuler
 ## Règles implémentées
 
 - Solde initial : **5** jetons (entiers uniquement).
-- Manche 1 (30 s, horodatage `round_ends_at`) :
+- Manche 1 (2 min, horodatage `round_ends_at`) :
   - Travail : +3 → 8
   - Temps libre : 5
   - Formation : −2 → 3, puis bonus unique +6 en manche 2

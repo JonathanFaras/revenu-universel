@@ -1,3 +1,5 @@
+import type { Round1Choice } from "./types";
+
 export const DISCUSSION_ROUND_1 =
   "Pourquoi avez-vous choisi cette option ?";
 
@@ -12,21 +14,20 @@ export const ROUND1_OPTIONS = [
   {
     id: "work" as const,
     title: "Travail",
-    subtitle: "+3 jetons immédiatement",
-    description: "Tu gagnes 3 jetons tout de suite. Ton solde passe de 5 à 8.",
+    subtitle: "+3 jetons",
+    description: "Ton solde passe de 5 à 8.",
   },
   {
     id: "leisure" as const,
     title: "Temps libre",
     subtitle: "Aucun gain",
-    description: "Tu conserves tes 5 jetons et disposes de ton temps.",
+    description: "Tu disposes de ton temps.",
   },
   {
     id: "training" as const,
     title: "Formation",
-    subtitle: "−2 maintenant, +6 plus tard",
-    description:
-      "Tu investis 2 jetons. Un bonus de 6 jetons arrivera au début de la manche 2.",
+    subtitle: "−2 jetons",
+    description: "Ton solde passe de 5 à 3.",
   },
 ];
 
@@ -48,7 +49,14 @@ export const VOTE_OPTIONS = [
   },
 ];
 
-export function mealMessage(balance: number, ate: boolean | null): string {
+export function mealMessage(
+  balance: number,
+  ate: boolean | null,
+  choice?: Round1Choice,
+): string {
+  if (choice === "training") {
+    return `Grâce à ta formation, tu as gagné 3 jetons ! Tu as reçu ton bonus, payé ton repas à 6 jetons et il te reste 3 jetons.`;
+  }
   if (ate === true && balance <= 2) {
     return `Ton solde est de ${balance} jeton${balance > 1 ? "s" : ""}. Tu as pu payer ton repas, mais il te reste peu d'argent.`;
   }
