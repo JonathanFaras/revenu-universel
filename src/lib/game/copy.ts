@@ -48,7 +48,7 @@ export function mealMessage(
   choice?: Round1Choice,
 ): string {
   if (choice === "training") {
-    return `Grâce à ta formation, tu as gagné 3 jetons ! Tu as reçu ton bonus, payé ton repas à 6 jetons et il te reste 3 jetons.`;
+    return `Grâce à ta formation, tu as reçu un bonus de +5 jetons ! Tu as pu payer ton repas à 6 jetons et il te reste 2 jetons.`;
   }
   if (ate === true && balance <= 2) {
     return `Ton solde est de ${balance} jeton${balance > 1 ? "s" : ""}. Tu as pu payer ton repas, mais il te reste peu d'argent.`;

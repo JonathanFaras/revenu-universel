@@ -2,7 +2,7 @@ export const INITIAL_BALANCE = 5;
 export const MEAL_COST = 6;
 export const WORK_GAIN = 3;
 export const TRAINING_COST = 2;
-export const TRAINING_BONUS = 6;
+export const TRAINING_BONUS = 5;
 export const ROUND_1_DURATION_MS = 120_000;
 
 export type RoomStatus = "lobby" | "in_progress" | "finished";

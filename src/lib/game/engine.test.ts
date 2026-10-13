@@ -89,7 +89,7 @@ describe("soldes et manches", () => {
     ).toBe(false);
   });
 
-  it("calcule Formation : 3 puis 9 puis 3", () => {
+  it("calcule Formation : 3 puis 8 puis 2", () => {
     const { state } = setupPlayer("training");
     expect(state.participants[0].currentBalance).toBe(
       INITIAL_BALANCE - TRAINING_COST,
@@ -108,8 +108,9 @@ describe("soldes et manches", () => {
     );
     const meal = round2.state.transactions.find((t) => t.reason === "repas");
     expect(bonus?.amount).toBe(TRAINING_BONUS);
+    expect(bonus?.amount).toBe(5);
     expect(meal?.amount).toBe(-MEAL_COST);
-    expect(round2.state.participants[0].currentBalance).toBe(3);
+    expect(round2.state.participants[0].currentBalance).toBe(2);
     expect(round2.state.participants[0].ateMeal).toBe(true);
   });
 
@@ -272,7 +273,8 @@ describe("durée et textes des choix (ajustements)", () => {
   });
 
   it("annonce en manche 2 le gain des participants formés", () => {
-    const msg = mealMessage(3, true, "training");
-    expect(msg).toContain("gagné 3 jetons");
+    const msg = mealMessage(2, true, "training");
+    expect(msg).toContain("+5 jetons");
+    expect(msg).toContain("2 jetons");
   });
 });

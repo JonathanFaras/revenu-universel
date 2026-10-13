@@ -35,7 +35,7 @@ Depuis l'espace animateur, vous pouvez ajouter des participants fictifs, simuler
 - Manche 1 (2 min, horodatage `round_ends_at`) :
   - Travail : +3 → 8
   - Temps libre : 5
-  - Formation : −2 → 3, puis bonus unique +6 en manche 2
+  - Formation : −2 → 3, puis bonus unique +5 en manche 2
 - Manche 2 : repas à 6 jetons, jamais de solde négatif.
 - Manche 3 : un vote par personne ; résultats masqués jusqu'à révélation par l'animateur.
 - La manche 3 est bloquée tant que la manche 2 n'est pas terminée.

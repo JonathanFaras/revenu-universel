@@ -242,7 +242,7 @@ export function HostPanel({
             <div className="mt-4 rounded-2xl bg-white/5 p-4 text-xs text-slate-300 space-y-1.5">
               <p>• <strong className="text-cyan-300">Travail :</strong> 8 − 6 = 2 jetons restants (a pu manger)</p>
               <p>• <strong className="text-emerald-300">Temps libre :</strong> 5 &lt; 6 = repas impossible (5 jetons restants, n&apos;a pas pu manger)</p>
-              <p>• <strong className="text-orange-300">Formation :</strong> 3 + bonus 6 = 9 − 6 = 3 jetons restants (a pu manger et a gagné 3 jetons)</p>
+              <p>• <strong className="text-orange-300">Formation :</strong> 3 + bonus 5 = 8 − 6 = 2 jetons restants (a pu manger grâce au bonus)</p>
             </div>
             <p className="mt-4 text-sm leading-6 text-slate-300">
               Cette simulation relie revenu disponible, prix et pouvoir d&apos;achat. Elle
