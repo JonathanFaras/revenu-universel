@@ -3,13 +3,6 @@ import type { Round1Choice } from "./types";
 export const DISCUSSION_ROUND_1 =
   "Pourquoi avez-vous choisi cette option ?";
 
-export const DISCUSSION_ROUND_3 = [
-  "Qui doit contribuer au financement ?",
-  "Une taxe sur les robots est-elle suffisante ?",
-  "Une contribution universelle est-elle juste ?",
-  "Comment éviter que le revenu perde son pouvoir d'achat ?",
-];
-
 export const ROUND1_OPTIONS = [
   {
     id: "work" as const,

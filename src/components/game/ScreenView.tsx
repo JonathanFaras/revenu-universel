@@ -5,7 +5,6 @@ import { BarChart } from "@/components/ui/BarChart";
 import { DemoBadge } from "@/components/ui/DemoBadge";
 import {
   DISCUSSION_ROUND_1,
-  DISCUSSION_ROUND_3,
 } from "@/lib/game/copy";
 import { PHASE_LABELS } from "@/lib/game/engine";
 import {
@@ -123,11 +122,6 @@ export function ScreenView({ state, demo }: { state: GameState; demo: boolean })
               },
             ]}
           />
-          <ul className="mt-8 space-y-3 text-xl text-slate-200">
-            {DISCUSSION_ROUND_3.map((q) => (
-              <li key={q}>{q}</li>
-            ))}
-          </ul>
         </section>
       ) : state.room.currentRound === 3 ? (
         <p className="text-3xl text-slate-300">

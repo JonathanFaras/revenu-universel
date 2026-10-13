@@ -17,7 +17,6 @@ import { DemoBadge } from "@/components/ui/DemoBadge";
 import { runHostAction } from "@/lib/client/game-api";
 import {
   DISCUSSION_ROUND_1,
-  DISCUSSION_ROUND_3,
 } from "@/lib/game/copy";
 import { PHASE_LABELS } from "@/lib/game/engine";
 import { mealStats, ROUND1_LABELS, round1Distribution, voteStats, VOTE_LABELS } from "@/lib/game/stats";
@@ -278,11 +277,6 @@ export function HostPanel({
               {votes.totalVotes} votes · {votes.abstained} n&apos;ont pas voté. Aucune
               réponse n&apos;est désignée comme la meilleure.
             </p>
-            <ul className="mt-4 space-y-2 text-sm text-slate-300">
-              {DISCUSSION_ROUND_3.map((q) => (
-                <li key={q}>• {q}</li>
-              ))}
-            </ul>
           </Card>
         ) : null}
       </section>
